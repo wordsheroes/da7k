@@ -1,15 +1,15 @@
 <!DOCTYPE html>  
-<html lang="fr">  
+<html lang="ar" dir="rtl">  
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Conditions Générales d'Utilisation</title>  
+    <title>شروط الاستخدام</title>  
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>  
         :root {
-            --primary: #0f172a; /* كحلي غامق فخم */
-            --accent: #d97706; /* لون ذهبي/برتقالي */
-            --bg: #f8fafc; /* خلفية رمادية فاتحة */
+            --primary: #0f172a; 
+            --accent: #d97706; 
+            --bg: #f8fafc; 
             --card-bg: #ffffff;
             --text: #334155;
             --radius: 16px;
@@ -28,13 +28,12 @@
             align-items: center;
         }  
         
-        /* زر العودة للمتجر الرئيسي المحدث */
         .back-btn {
             align-self: flex-start;
             max-width: 700px;
             width: 100%;
             margin: 10px auto 15px auto;
-            text-align: left;
+            text-align: right; /* تم ضبطه لليمين ليتناسب مع RTL */
         }
         
         .back-btn a {
@@ -54,13 +53,11 @@
         }
         
         .back-btn a:hover {
-            transform: translateX(-5px);
+            transform: translateX(5px);
             color: var(--accent);
             border-color: var(--accent);
-            box-shadow: 0 5px 15px rgba(217, 119, 6, 0.1);
         }
 
-        /* حاوية الشروط (الكارت الأبيض) المتطابقة مع التصميم الجديد */
         .terms-container {  
             background: var(--card-bg);  
             max-width: 700px;  
@@ -74,9 +71,7 @@
         }  
 
         @media (max-width: 600px) {
-            .terms-container {
-                padding: 30px 20px;
-            }
+            .terms-container { padding: 30px 20px; }
         }
 
         h1 {  
@@ -86,10 +81,8 @@
             margin-top: 0;  
             margin-bottom: 20px;  
             text-align: center;  
-            line-height: 1.3;
         }  
         
-        /* الخط الفاصل تحت العنوان الرئيسي بلون المتجر (الذهبي/البرتقالي) */
         .title-divider {
             width: 60px;
             height: 4px;
@@ -98,27 +91,24 @@
             border-radius: 2px;
         }
 
-        /* العناوين الجانبية */
         h2 {
             color: var(--primary);
             font-size: 19px;
             font-weight: 700;
             margin-top: 35px;
             margin-bottom: 12px;
-            border-left: 4px solid var(--accent);
-            padding-left: 12px;
+            border-right: 4px solid var(--accent); /* تم ضبطه لليمين */
+            padding-right: 12px;
         }
 
         p {  
             font-size: 15.5px;  
-            line-height: 1.7;  
+            line-height: 1.8;  
             color: #475569;  
             text-align: justify;  
-            margin-top: 0;
             margin-bottom: 20px;
         }  
 
-        /* الخط السفلي الرفيع قبل الملاحظة الختامية */
         .footer-line {
             border: none;
             border-top: 1px solid #e2e8f0;
@@ -131,38 +121,37 @@
             line-height: 1.6;
             color: #64748b;  
             text-align: center;  
-            font-style: italic;
         }  
     </style>  
 </head>  
 <body>  
 
     <div class="back-btn">
-        <a href="index.html">← Retour à la boutique</a>
+        <a href="index.html">← العودة للمتجر</a>
     </div>
 
     <div class="terms-container">  
-        <h1>CONDITIONS GÉNÉRALES d'UTILISATION</h1>  
+        <h1>الشروط والأحكام</h1>  
         <div class="title-divider"></div>
         
-        <p>Bienvenue sur notre plateforme en ligne. En accédant à ce site ou en effectuant un achat, vous acceptez expressément de vous conformer aux conditions générales et politiques légales énoncées ci-dessous.</p>
+        <p>مرحباً بك في منصتنا الإلكترونية. من خلال الوصول إلى هذا الموقع أو إجراء عملية شراء، فإنك توافق صراحة على الالتزام بالشروط والأحكام والسياسات القانونية الموضحة أدناه.</p>
 
-        <h2>1. Acceptation des Conditions</h2>
-        <p>Les présentes conditions s'appliquent à tous les visiteurs et utilisateurs du site. Si vous n'acceptez pas tout ou partie de ces conditions, veuillez cesser immédiatement d'utiliser la plateforme.</p>  
+        <h2>1. قبول الشروط</h2>
+        <p>تطبق هذه الشروط على جميع زوار ومستخدمي الموقع. إذا كنت لا توافق على كل أو جزء من هذه الشروط، يرجى التوقف عن استخدام المنصة فوراً.</p>  
         
-        <h2>2. Transactions et Paiements</h2>
-        <p>Tous les produits et transactions affichés sur ce site sont des offres commerciales réelles. Les paiements sont traités de manière sécurisée via des passerelles de paiement certifiées. Les prix et la disponibilité des produits sont sujets à modification sans préavis.</p>  
+        <h2>2. المعاملات والمدفوعات</h2>
+        <p>جميع المنتجات والمعاملات المعروضة على هذا الموقع هي عروض تجارية حقيقية. تتم معالجة المدفوعات بشكل آمن عبر بوابات دفع معتمدة. الأسعار وتوافر المنتجات قابلة للتغيير دون إشعار مسبق.</p>  
         
-        <h2>3. Expédition et Livraison</h2>
-        <p>Nous nous engageons à expédier et à livrer les commandes à nos clients selon les destinations disponibles. Les délais et les frais de livraison peuvent varier en fonction de l'adresse indiquée, et tous les détails sont clairement présentés au client lors du processus de validation de la commande.</p>  
+        <h2>3. الشحن والتوصيل</h2>
+        <p>نلتزم بشحن وتوصيل الطلبات لعملائنا حسب الوجهات المتاحة. قد تختلف أوقات ورسوم التوصيل بناءً على العنوان المحدد، ويتم عرض كافة التفاصيل بوضوح للعميل أثناء عملية إتمام الطلب.</p>  
         
-        <h2>4. Responsabilité du Compte</h2>
-        <p>L'utilisateur est entièrement responsable du maintien de la confidentialité des informations de son compte et s'engage à fournir des informations de livraison et de facturation exactes pour garantir la réception de ses commandes.</p>
+        <h2>4. مسؤولية الحساب</h2>
+        <p>يتحمل المستخدم المسؤولية الكاملة عن الحفاظ على سرية معلومات حسابه، ويتعهد بتقديم معلومات دقيقة للشحن والفواتير لضمان استلام طلباته.</p>
 
         <hr class="footer-line">
 
         <div class="footer-note">  
-            Merci d'avoir choisi notre boutique. Si vous avez des questions, notre équipe de support technique est à votre entière disposition.
+            شكراً لاختيارك متجرنا. إذا كانت لديك أي استفسارات، فإن فريق الدعم الفني لدينا تحت تصرفك بالكامل.
         </div>  
     </div>  
 
