@@ -1,231 +1,299 @@
-<!DOCTYPE html>  
-<html lang="ar" dir="rtl">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>تفاصيل السيارة</title>  
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">  
+<!DOCTYPE html>    <html lang="ar" dir="rtl">    
+<head>    
+<meta charset="UTF-8">    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">    
+<title>تفاصيل السيارة</title>    
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">    
+<style>    
+:root {    
+    --primary: #0f172a;    
+    --accent: #d97706;    
+    --bg: #f8fafc;    
+    --radius: 16px;    
+}    
+* { box-sizing: border-box; }    body {
+margin: 0;
+font-family: 'Tajawal', sans-serif;
+background: var(--bg);
+color: #334155;
+overflow-x: hidden; /* يمنع التمرير الأفقي للصفحة بأكملها */
+}
 
-<style>  
-:root {  
-    --primary: #0f172a;  
-    --accent: #d97706;  
-    --bg: #f8fafc;  
-    --radius: 16px;  
-}  
+.topbar {
+background: var(--primary);
+padding: 15px 5%;
+color: white;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-* { box-sizing: border-box; }  
+.logo {
+font-size: 26px;
+font-weight: 800;
+text-decoration: none;
+color: white;
+}
+.logo span { color: var(--accent); }
 
-body {  
-    margin: 0;  
-    font-family: 'Tajawal', sans-serif;  
-    background: var(--bg);  
-    color: #334155;  
-    overflow-x: hidden;  
-}  
+.product-container {
+width: 90%;
+max-width: 1000px;
+margin: 40px auto;
+padding: 30px;
+display: grid;
+grid-template-columns: 1.2fr 1fr;
+gap: 40px;
+background: white;
+border-radius: var(--radius);
+box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
 
-.topbar {  
-    background: var(--primary);  
-    padding: 15px 5%;  
-    color: white;  
-    display: flex;  
-    justify-content: space-between;  
-    align-items: center;  
-}  
+/* 🌟 هذا هو السطر السحري الذي يمنع تمدد الصفحة وخراب التصميم 🌟 */
+.product-container > div {
+min-width: 0;
+}
 
-.logo {  
-    font-size: 26px;  
-    font-weight: 800;  
-    text-decoration: none;  
-    color: white;  
-}  
+@media (max-width: 768px) {
+.product-container {
+grid-template-columns: 1fr;
+padding: 20px;
+margin: 20px auto;
+gap: 20px;
+width: 95%; /* توسيع الصندوق قليلاً في الجوال ليناسب الشاشة */
+}
+}
 
-.logo span { color: var(--accent); }  
+.main-image {
+width: 100%;
+height: 350px;
+object-fit: cover;
+border-radius: 12px;
+cursor: zoom-in;
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-.product-container {  
-    width: 90%;  
-    max-width: 1000px;  
-    margin: 40px auto;  
-    padding: 30px;  
-    display: grid;  
-    grid-template-columns: 1.2fr 1fr;  
-    gap: 40px;  
-    background: white;  
-    border-radius: var(--radius);  
-}  
+.thumbs {
+display: flex;
+gap: 12px;
+overflow-x: auto;
+margin-top: 15px;
+padding-bottom: 10px;
+scroll-behavior: smooth;
+scrollbar-width: none; /* إخفاء شريط التمرير في فايرفوكس */
+}
 
-.product-container > div { min-width: 0; }  
+.thumbs::-webkit-scrollbar {
+display: none; /* إخفاء شريط التمرير في كروم وسفاري لمظهر أنظف */
+}
 
-.main-image {  
-    width: 100%;  
-    height: 350px;  
-    object-fit: cover;  
-    border-radius: 12px;  
-    cursor: zoom-in;  
-}  
+.thumbs img {
+width: 80px;
+height: 60px;
+object-fit: cover;
+border-radius: 8px;
+cursor: pointer;
+border: 3px solid transparent;
+transition: 0.2s;
+opacity: 0.7;
+flex-shrink: 0; /* يمنع الصور المصغرة من الانضغاط وتخريب شكلها */
+}
 
-.thumbs {  
-    display: flex;  
-    gap: 10px;  
-    overflow-x: auto;  
-}  
+.thumbs img:hover { opacity: 1; }
+.thumbs img.active {
+border-color: var(--accent);
+opacity: 1;
+}
 
-.thumbs img {  
-    width: 80px;  
-    height: 60px;  
-    object-fit: cover;  
-    cursor: pointer;  
-    border-radius: 8px;  
-    opacity: 0.7;  
-}  
+.product-info h1 {
+color: var(--primary);
+margin: 0 0 10px 0;
+font-size: 2.2em;
+font-weight: 800;
+word-wrap: break-word; /* يمنع الكلمات الطويلة من تخريب التصميم */
+}
 
-.thumbs img.active {  
-    border: 2px solid var(--accent);  
-    opacity: 1;  
-}  
+.price-tag {
+font-size: 24px;
+font-weight: 800;
+color: white;
+background: var(--accent);
+padding: 8px 15px;
+display: inline-block;
+border-radius: 8px;
+margin-bottom: 20px;
+}
 
-.product-info h1 {  
-    font-size: 2em;  
-    color: var(--primary);  
-}  
+.description {
+font-size: 1.1em;
+line-height: 1.8;
+color: #475569;
+margin-bottom: 25px;
+background: #f1f5f9;
+padding: 15px;
+border-radius: 8px;
+word-wrap: break-word;
+}
 
-.price-tag {  
-    background: var(--accent);  
-    color: white;  
-    padding: 8px 15px;  
-    display: inline-block;  
-    border-radius: 8px;  
-    font-weight: bold;  
-}  
+.specs-table {
+width: 100%;
+border-collapse: collapse;
+}
 
-.description {  
-    margin-top: 15px;  
-    background: #f1f5f9;  
-    padding: 15px;  
-    border-radius: 8px;  
-}  
+.specs-table td {
+padding: 12px 0;
+border-bottom: 1px solid #e2e8f0;
+word-wrap: break-word;
+}
 
-.actions {  
-    display: flex;  
-    gap: 15px;  
-    margin-top: 25px;  
-}  
+.specs-table tr:last-child td { border-bottom: none; }
 
-.btn {  
-    flex: 1;  
-    padding: 15px;  
-    text-align: center;  
-    text-decoration: none;  
-    border-radius: 8px;  
-    font-weight: bold;  
-}  
+.specs-table td:first-child {
+font-weight: 700;
+color: var(--primary);
+width: 40%;
+}
 
-.contact { background: var(--primary); color: white; }  
-.back { background: #e2e8f0; color: black; }  
+.actions {
+display: flex;
+gap: 15px;
+margin-top: 30px;
+}
 
-.modal {  
-    display: none;  
-    position: fixed;  
-    width: 100%;  
-    height: 100%;  
-    background: rgba(0,0,0,0.9);  
-    justify-content: center;  
-    align-items: center;  
-}  
+.btn {
+flex: 1;
+padding: 15px;
+border-radius: 8px;
+text-align: center;
+text-decoration: none;
+font-weight: 700;
+font-size: 1.1em;
+transition: 0.3s;
+}
 
-.modal img {  
-    max-width: 90%;  
-    max-height: 90%;  
-}  
-</style>  
-</head>  
+.contact { background: var(--primary); color: white; }
+.contact:hover { background: #1e293b; }
 
-<body>  
+.back { background: #e2e8f0; color: var(--primary); }
+.back:hover { background: #cbd5e1; }
 
-<header class="topbar">  
-    <a class="logo" href="index.html">eye<span>find</span>.info</a>  
-    <span>تفاصيل السيارة</span>  
-</header>  
+/* مودال تكبير الصورة */
+.modal {
+display: none;
+position: fixed;
+z-index: 9999;
+left: 0; top: 0;
+width: 100%; height: 100%;
+background-color: rgba(15, 23, 42, 0.95);
+align-items: center;
+justify-content: center;
+}
 
-<main class="product-container">  
+.modal img {
+max-width: 90%;
+max-height: 90%;
+object-fit: contain;
+border-radius: 12px;
+box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5);
+}
 
-    <div>  
-        <img id="mainImg" class="main-image" onclick="openModal()">  
-        <div class="thumbs" id="thumbs"></div>  
-    </div>  
+.close-btn {
+position: absolute;
+top: 20px;
+right: 35px;
+color: white;
+font-size: 50px;
+cursor: pointer;
+transition: 0.3s;
+}
 
-    <div class="product-info">  
-        <h1 id="carName"></h1>  
-        <div class="price-tag" id="price"></div>  
-        <p class="description" id="desc"></p>  
+.close-btn:hover { color: var(--accent); }
+</style>
 
-        <table>  
-            <tr><td>سنة الصنع</td><td id="year"></td></tr>  
-            <tr><td>الحالة</td><td id="condition"></td></tr>  
-            <tr><td>المحرك</td><td id="engine"></td></tr>  
-        </table>  
+</head>    
+<body>    <header class="topbar">    
+    <a class="logo" href="index.html">eye<span>find</span>.info</a>    
+    <span style="font-weight:700;">تفاصيل السيارة</span>    
+</header>    <main class="product-container">    
+    <div>    
+        <img id="mainImg" class="main-image" onclick="openModal()">    
+        <div class="thumbs" id="thumbs"></div>    
+    </div>    <div class="product-info">    
+    <h1 id="carName"></h1>    
+    <div class="price-tag" id="price"></div>    
+    <p class="description" id="desc"></p>    
 
-        <div class="actions">  
-            <a id="contactBtn" class="btn contact" target="_blank">تواصل معنا الآن</a>  
-            <a href="index.html" class="btn back">رجوع</a>  
-        </div>  
-    </div>  
+    <table class="specs-table">    
+        <tr><td>سنة الصنع</td><td id="year"></td></tr>    
+        <tr><td>الحالة</td><td id="condition"></td></tr>    
+        <tr><td>عدد المقاعد</td><td id="seats"></td></tr>    
+        <tr><td>المحرك</td><td id="engine"></td></tr>    
+        <tr><td>المسافة المقطوعة</td><td id="mileage"></td></tr>    
+        <tr><td>اللون</td><td id="color"></td></tr>    
+    </table>    
 
-</main>  
+    <div class="actions">    
+        <a id="contactBtn" class="btn contact" target="_blank">تواصل معنا الآن</a>  
+        <a href="index.html" class="btn back">رجوع</a>    
+    </div>    
+</div>
 
-<div id="imageModal" class="modal" onclick="closeModal()">  
-    <img id="fullImg">  
-</div>  
+</main>    <div id="imageModal" class="modal">    
+    <span class="close-btn" onclick="closeModal()">&times;</span>    
+    <img id="fullImg">    
+</div>    <script>    
+let cars = JSON.parse(localStorage.getItem("cars")) || [];    
+let i = localStorage.getItem("selectedCar");    
+let car = cars[i];    
+    
+if(car){    
+    document.getElementById("carName").innerText = car.name;    
+    document.getElementById("price").innerText = car.price ? car.price + " درهم" : "";    
+    document.getElementById("desc").innerText = car.description;    
+        
+    document.getElementById("year").innerText = car.year;    
+    document.getElementById("condition").innerText = car.condition;    
+    document.getElementById("seats").innerText = car.seats;    
+    document.getElementById("engine").innerText = car.engine;    
+    document.getElementById("mileage").innerText = car.mileage;    
+    document.getElementById("color").innerText = car.color;    
+    
+    const mainImg = document.getElementById("mainImg");    
+    mainImg.src = car.images?.[0] || "";    
+    
+    let thumbs = document.getElementById("thumbs");    
+    
+    (car.images || []).forEach((img, idx)=>{    
+        let t = document.createElement("img");    
+        t.src = img;    
+        if(idx === 0) t.classList.add("active");    
+    
+        t.onclick = () => {    
+            mainImg.src = img;    
+            document.querySelectorAll(".thumbs img").forEach(x => x.classList.remove("active"));    
+            t.classList.add("active");    
+        };    
+        thumbs.appendChild(t);    
+    });    
+}    
+    
+function openModal() {    
+    const modal = document.getElementById("imageModal");    
+    const fullImg = document.getElementById("fullImg");    
+    const mainImg = document.getElementById("mainImg");    
+    if(mainImg.src) { fullImg.src = mainImg.src; modal.style.display = "flex"; }    
+}    
+function closeModal() { document.getElementById("imageModal").style.display = "none"; }    
+window.onclick = function(event) {    
+    const modal = document.getElementById("imageModal");    
+    if (event.target == modal) modal.style.display = "none";    
+}
 
-<script>  
-let cars = JSON.parse(localStorage.getItem("cars")) || [];  
-let i = localStorage.getItem("selectedCar");  
-let car = cars[i];  
+const phone = "212727028813"; // غيّر الرقم
+const message = `اريد تفاصيل سيارة ${car.name}، من فضلك.`;
 
-if(car){  
-    document.getElementById("carName").innerText = car.name;  
-    document.getElementById("price").innerText = car.price + " درهم";  
-    document.getElementById("desc").innerText = car.description;  
-    document.getElementById("year").innerText = car.year;  
-    document.getElementById("condition").innerText = car.condition;  
-    document.getElementById("engine").innerText = car.engine;  
-
-    const mainImg = document.getElementById("mainImg");  
-    mainImg.src = car.images?.[0];  
-
-    let thumbs = document.getElementById("thumbs");  
-
-    (car.images || []).forEach((img, idx)=>{  
-        let t = document.createElement("img");  
-        t.src = img;  
-        if(idx === 0) t.classList.add("active");  
-
-        t.onclick = () => {  
-            mainImg.src = img;  
-            document.querySelectorAll(".thumbs img").forEach(x => x.classList.remove("active"));  
-            t.classList.add("active");  
-        };  
-
-        thumbs.appendChild(t);  
-    });  
-
-    // 🔥 زر واتساب برسالة تلقائية
-    const phone = "212727028813"; // غيره
-    const message = `اريد تفاصيل سيارة ${car.name}، من فضلك.`;
-
-    document.getElementById("contactBtn").href =
-        `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-}  
-
-function openModal(){  
-    document.getElementById("fullImg").src = document.getElementById("mainImg").src;  
-    document.getElementById("imageModal").style.display = "flex";  
-}  
-
-function closeModal(){  
-    document.getElementById("imageModal").style.display = "none";  
-}  
-</script>  
-
-</body>  
-</html>
+document.getElementById("contactBtn").href =
+  `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+</script>    </body>    
+</html>    
